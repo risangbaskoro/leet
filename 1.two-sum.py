@@ -1,5 +1,4 @@
 # 1. Two Sum
-#
 # https://leetcode.com/problems/two-sum
 
 from typing import List
@@ -10,7 +9,8 @@ class Solution:
         map = {}
 
         for i, num in enumerate(nums):
-            if target - num not in map.values():
-                map[i] = num
+            res = target - num
+            if res not in map:
+                map[num] = i
             else:
-                return [i, map[num]]
+                return [i, map[res]]
